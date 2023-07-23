@@ -1,0 +1,11 @@
+version: '3'
+services:
+  svelte:
+    build: ./svelte
+    container_name: svelte
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./svelte:/macros-calc/svelte
+      - /macros-calc/svelte/node_modules
+    command: npm run dev
