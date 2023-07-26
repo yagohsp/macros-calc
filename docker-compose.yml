@@ -1,11 +1,20 @@
-version: '3'
+version: "3"
 services:
   svelte:
     build: ./svelte
     container_name: svelte
-    ports:
-      - '3000:3000'
     volumes:
-      - ./svelte:/macros-calc/svelte
-      - /macros-calc/svelte/node_modules
+      - "./svelte:/macros-calc/svelte"
+      - "/macros-calc/svelte/node_modules"
+    command: npm run dev
+    ports:
+      - 3000:3000
+  express:
+    build: ./express
+    container_name: express
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./express:/macros-calc/express
+      - /macros-calc/express/node_modules
     command: npm run dev
